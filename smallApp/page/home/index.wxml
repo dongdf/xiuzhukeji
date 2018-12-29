@@ -1,0 +1,151 @@
+<!-- <view class='wrap'>
+	<view>
+		<view class='date-show'>
+			<view class='lt-arrow' bindtap='lastMonth'>
+      <i class="icon iconfont icon-return"></i>
+				<image src='../images/nextMonth.png' mode='aspectFit'></image>
+			</view>
+			{{year}}年{{month}}月
+			<view class='rt-arrow' bindtap='nextMonth'>
+			<i class="icon iconfont icon-enter"></i>
+			</view>
+		</view>
+	</view>
+	<view class='header'>
+		<view wx:for='{{date}}' class='{{(index == todayIndex) && isTodayWeek ? "weekMark" : ""}}'>{{item}}<view></view></view>
+	</view>
+	<view class='date-box'>
+		<view wx:for='{{dateArr}}' class='{{isToday == item.isToday ? "nowDay" : ""}}' data-date='{{item.isToday}}'>			
+			<view class='date-head'>
+				<view bindtap='checkkDay' data-obj='{{item}}'>{{item.dateNum}}</view>
+			</view>
+			<view class='date-weight'>{{item.weight}}</view>
+		</view>
+	</view>
+</view> -->
+
+ 
+<view>
+<view class='cmmtitle'  wx:if="{{lists.ing.length>0}}">即将开始</view>
+    <view  wx:for="{{lists.ing}}" wx:for-index="index" wx:for-item="item" class='rcontent'>
+    <navigator wx:if="{{index ==0}}" url='../home/detail?mid={{item.id}}'>
+          <view class='rowp nopd'>
+            <view class='col col-100'>
+                <view class='zhutis'>
+                  {{item.title}}
+                  <label class='fmoneys'>待分余额{{item.wait_allot_money}}元</label>
+                </view>
+              <view class='time_ss'>{{item.active_time}}</view>
+              <view class='time'>{{item.adr_name}}</view>
+              <view class='time'>{{item.address}}</view>
+              </view>
+            <view class='cl'></view>
+          </view>
+      </navigator>
+    
+
+    
+    <navigator wx:if="{{index>0}}" url='../home/detail?mid={{item.id}}'>
+          <view class='rowp nopd'>
+            <view class='col col-100'>
+                <view class='zhutis'>
+                  {{item.title}}
+                   
+                </view>
+                <label class="rightarrow"><text>{{item.active_time}}</text><i class="icon iconfont icon-enter"></i></label>
+              <view class='time'>待分余额{{item.wait_allot_money}}</view>
+              
+              </view>
+            <view class='cl'></view>
+          </view>
+      </navigator>
+    
+
+    </view>
+
+
+</view>
+
+
+
+<view>
+<view class='cmmtitle' wx:if="{{lists.close.length>0}}">待关闭</view>
+
+      
+        
+            <view class='rcontent' wx:for="{{lists.close}}" wx:for-index="index" wx:for-item="item">
+            <navigator url='../home/detail?mid={{item.id}}'>
+                  <view class='rowp nopd'>
+                    <view class='col col-100'>
+                        <view class='zhutis'>
+                          {{item.title}}
+                          
+                        </view>
+                        <label class="rightarrow"><text>{{item.active_time}}</text><i class="icon iconfont icon-enter"></i></label>
+                      <view class='time'>待分余额{{item.wait_allot_money}}元</view>
+                      
+                      </view>
+                    <view class='cl'></view>
+                  </view>
+              </navigator>
+            </view>
+         
+        
+
+         
+         
+        
+
+
+</view>
+
+<view>
+<!-- <view class='cmmtitle '>MORE</view> -->
+
+
+     
+
+
+
+
+
+</view>
+
+
+<view>
+<view class='cmmtitle' wx:if="{{lists.end.length>0}}">已结束</view>
+                <view style='opacity:.6' wx:for="{{lists.end}}" wx:for-index="index" wx:for-item="item" class='rcontent'>
+                <navigator url='../home/latedetail?mid={{item.id}}'>
+                      <view class='rowp nopd'>
+                        <view class='col col-100'>
+                            <view class='zhutis'>
+                              {{item.title}}
+                              
+                            </view>
+                            <label class="rightarrow"><text>10月20日</text><i class="icon iconfont icon-enter"></i></label>
+                          <view class='time'>待分余额{{item.wait_allot_money}}元</view>
+                          
+                          </view>
+                        <view class='cl'></view>
+                      </view>
+                    </navigator>
+                </view>
+         
+
+
+          
+            
+          
+
+
+</view>
+
+
+
+<view class='act_group fixedbar'>
+       <form report-submit='true' bindsubmit='goaddmeeting'><button hover-class='tapbtn' class='actbtn actbtn_red' plain="true" form-type='submit'  >发起活动</button></form>   
+       <form report-submit='true' bindsubmit='gomine'><button hover-class='tapbtn' class=' actbtn_cancle' plain="true" form-type='submit' >我</button></form> 
+        
+</view>
+
+

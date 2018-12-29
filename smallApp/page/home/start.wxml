@@ -1,0 +1,5 @@
+<!--page/home/start.wxml-->
+<view>
+   欢迎使用朽箸科技产品
+</view>
+<button type='sub' class='shortMoney lg'   open-type="getUserInfo" bindgetuserinfo='bindGetUserInfo'  >开始使用</button>
